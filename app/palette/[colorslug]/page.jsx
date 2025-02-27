@@ -9,7 +9,7 @@ const Page = ({ params }) => {
   const unwrappedParams = React.use(params);
   const colorslug = unwrappedParams.colorslug;
   const colorSlugArray = colorslug.split("-");
-  const [colours, setColours] = useState(colorSlugArray);
+  const [colors, setcolors] = useState(colorSlugArray);
   const [lockedIndices, setLockedIndices] = useState([]);
   const { windowSize, savedPalette, setSavedPalette } = useGlobalContext();
   const width = windowSize.width;
@@ -27,17 +27,17 @@ const Page = ({ params }) => {
   const generateOnButton = () => {
     toast.dismiss();
     if (lockedIndices.length == 5) return;
-    const newColours = generateRandomColorString().split("-");
+    const newcolors = generateRandomColorString().split("-");
     if (lockedIndices.length > 0) {
       lockedIndices.forEach((index) => {
-        newColours[index] = colours[index];
+        newcolors[index] = colors[index];
       });
     }
-    setColours(newColours);
+    setcolors(newcolors);
     history.pushState(
       {},
       null,
-      window.location.href.split("/")[0] + "/palette/" + newColours.join("-")
+      window.location.href.split("/")[0] + "/palette/" + newcolors.join("-"),
     );
   };
 
@@ -48,19 +48,19 @@ const Page = ({ params }) => {
         ev.preventDefault();
         toast.dismiss();
         if (lockedIndices.length == 5) return;
-        const newColours = generateRandomColorString().split("-");
+        const newcolors = generateRandomColorString().split("-");
         if (lockedIndices.length > 0) {
           lockedIndices.forEach((index) => {
-            newColours[index] = colours[index];
+            newcolors[index] = colors[index];
           });
         }
-        setColours(newColours);
+        setcolors(newcolors);
         history.pushState(
           {},
           null,
           window.location.href.split("/")[0] +
             "/palette/" +
-            newColours.join("-")
+            newcolors.join("-"),
         );
       }
     };
@@ -71,7 +71,7 @@ const Page = ({ params }) => {
     return () => {
       document.removeEventListener("keydown", generateOnSpace);
     };
-  }, [savedPalette, lockedIndices]);
+  }, [colors, setSavedPalette, savedPalette, lockedIndices]);
 
   const shareLink = () => {
     if (navigator.share) {
@@ -87,7 +87,7 @@ const Page = ({ params }) => {
   };
 
   const saveColorPalette = () => {
-    const paletteColorsString = colours.join("-");
+    const paletteColorsString = colors.join("-");
 
     if (typeof window !== "undefined") {
       const existingPalette = localStorage.getItem("paletteColors");
@@ -97,7 +97,7 @@ const Page = ({ params }) => {
           const newColorPalette = [...palette, paletteColorsString];
           localStorage.setItem(
             "paletteColors",
-            JSON.stringify(newColorPalette)
+            JSON.stringify(newColorPalette),
           );
           setSavedPalette(newColorPalette);
           toast.success("Palette Saved!");
@@ -116,7 +116,7 @@ const Page = ({ params }) => {
   const lockColorPalette = (index) => {
     const newLockedIndices = [...lockedIndices, index];
     setLockedIndices(newLockedIndices);
-    const colorLockedColorName = colours[index];
+    const colorLockedColorName = colors[index];
     toast.success(`Locked #${colorLockedColorName}`);
   };
 
@@ -125,7 +125,7 @@ const Page = ({ params }) => {
     const indexOf = updatedLockedIndices.indexOf(index);
     updatedLockedIndices.splice(indexOf, 1);
     setLockedIndices(updatedLockedIndices);
-    const colorUnlocked = colours[index];
+    const colorUnlocked = colors[index];
     toast.success(`Unlocked #${colorUnlocked}`);
   };
 
@@ -143,20 +143,20 @@ const Page = ({ params }) => {
       <Toaster position="top-center" reverseOrder={false} />
       <Navbar generateOnButton={generateOnButton} />
       <div className="h-[calc(100vh-72px)] w-full">
-        <div className={`grid md:grid-flow-col h-full`}>
-          {colours.map((colorHex, index) => (
+        <div className={`grid h-full md:grid-flow-col`}>
+          {colors.map((colorHex, index) => (
             <Fragment key={index}>
-              <div className="relative group">
+              <div className="group relative">
                 <div
-                  className="h-full w-full transition ease-in-out delay-150"
+                  className="h-full w-full transition delay-150 ease-in-out"
                   style={{ backgroundColor: `#${colorHex}` }}
                 ></div>
-                <div className="bottom-40 absolute opacity-0 group-hover:opacity-100 transition-opacity w-full">
+                <div className="absolute bottom-40 w-full opacity-0 transition-opacity group-hover:opacity-100">
                   <div className="flex flex-col items-center gap-6">
                     <FiCopy
                       className={`${isTooDark(
-                        colorHex
-                      )} hover:scale-110 active:scale-90 transition ease-in-out delay-50 cursor-pointer text-2xl`}
+                        colorHex,
+                      )} delay-50 cursor-pointer text-2xl transition ease-in-out hover:scale-110 active:scale-90`}
                       onClick={() => {
                         navigator.clipboard
                           .writeText(`#${colorHex}`)
@@ -165,29 +165,29 @@ const Page = ({ params }) => {
                     />
                     <FiShare2
                       className={`${isTooDark(
-                        colorHex
-                      )} hover:scale-110 cursor-pointer text-2xl`}
+                        colorHex,
+                      )} cursor-pointer text-2xl hover:scale-110`}
                       onClick={() => shareLink()}
                     />
                     {lockedIndices.includes(index) ? (
                       <FiLock
-                        className="text-[#00F] hover:scale-110 cursor-pointer text-2xl"
+                        className="cursor-pointer text-2xl text-[#00F] hover:scale-110"
                         onClick={() => unLockColorPalette(index)}
                       />
                     ) : (
                       <FiUnlock
                         className={`${isTooDark(
-                          colorHex
-                        )} hover:scale-110 cursor-pointer text-2xl`}
+                          colorHex,
+                        )} cursor-pointer text-2xl hover:scale-110`}
                         onClick={() => lockColorPalette(index)}
                       />
                     )}
                   </div>
                 </div>
-                <div className="absolute bottom-20 right-0 left-0">
+                <div className="absolute bottom-20 left-0 right-0">
                   <p
-                    className={`text-center text-2xl uppercase font-medium ${isTooDark(
-                      colorHex
+                    className={`text-center text-2xl font-medium uppercase ${isTooDark(
+                      colorHex,
                     )}`}
                   >
                     #{colorHex}

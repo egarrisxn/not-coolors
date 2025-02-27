@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const Navbar = ({ generateOnButton }) => {
   const pathname = usePathname();
   return (
-    <div className="flex sm:flex-row flex-col justify-between items-center py-3 sm:px-20 px-10 shadow-lg">
+    <div className="flex flex-col items-center justify-between px-10 py-3 shadow-lg sm:flex-row sm:px-20">
       <Link href="/">
         <Image
           src="/notcoolors.svg"
@@ -17,24 +17,24 @@ const Navbar = ({ generateOnButton }) => {
           alt="not not coolors logo"
         />
       </Link>
-      <div className="flex justify-center items-center text-lg font-semibold">
+      <div className="flex items-center justify-center text-lg font-semibold">
         <Link href="/saved-palette">
           <p
             className={`${
               pathname == "/saved-palette" ? "border-b-2" : "hover:border-b-2"
-            } border-[#0165fe] cursor-pointer`}
+            } cursor-pointer border-[#0165fe]`}
             onClick={() => toast.dismiss()}
           >
             My Palette
           </p>
         </Link>
-        <div className="bg-[#ECECEC] mx-3 w-[1px] h-12"></div>
+        <div className="mx-3 h-12 w-[1px] bg-[#ECECEC]"></div>
         {pathname.includes("/palette/") ? (
           <button
             onClick={() => generateOnButton()}
             className={`${
               pathname.includes("/palette/") ? "border-b-2" : "hover:border-b-2"
-            } border-[#0165fe] cursor-pointer`}
+            } cursor-pointer border-[#0165fe]`}
           >
             Generate!
           </button>
@@ -45,7 +45,7 @@ const Navbar = ({ generateOnButton }) => {
                 pathname.includes("/palette/")
                   ? "border-b-2"
                   : "hover:border-b-2"
-              } border-[#0165fe] cursor-pointer`}
+              } cursor-pointer border-[#0165fe]`}
             >
               Generate!
             </p>

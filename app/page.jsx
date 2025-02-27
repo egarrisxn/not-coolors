@@ -13,23 +13,23 @@ export default function Home() {
     <>
       <Navbar />
       <div className="md:flex">
-        <div className="md:w-1/2 w-full lg:px-40 sm:px-10 px-10 flex flex-col justify-center items-center xl:mt-0 lg:mt-32 md:mt-32 sm:mt-10 mt-10">
-          <p className="lg:text-5xl text-3xl font-bold text-center alfa">
+        <div className="mt-10 flex w-full flex-col items-center justify-center px-10 sm:mt-10 sm:px-10 md:mt-32 md:w-1/2 lg:mt-32 lg:px-40 xl:mt-0">
+          <p className="alfa text-center text-3xl font-bold lg:text-5xl">
             Lightning-Fast Color Palette Generator!
           </p>
-          <p className="lg:text-2xl text-lg text-center my-10 text-[#464858] font-semibold">
+          <p className="my-10 text-center text-lg font-semibold text-[#464858] lg:text-2xl">
             Craft your ideal palette or draw inspiration from a myriad of
             exquisite color schemes.
           </p>
           <div>
             <Link href={`/generate`}>
-              <p className="bg-[#0165fe] transition duration-150 hover:scale-105 .hover:shadow-lg text-white text-center font-semibold px-20 py-3 text-xl rounded-xl cursor-pointer">
+              <p className=".hover:shadow-lg cursor-pointer rounded-xl bg-[#0165fe] px-20 py-3 text-center text-xl font-semibold text-white transition duration-150 hover:scale-105">
                 Generate!
               </p>
             </Link>
           </div>
         </div>
-        <div className="w-1/2 xl:p-32 p-24 sm:px-10 xl:mt-0 mt-32 justify-center md:flex hidden">
+        <div className="mt-32 hidden w-1/2 justify-center p-24 sm:px-10 md:flex xl:mt-0 xl:p-32">
           <Image
             className="m-0"
             src="/nc.png"

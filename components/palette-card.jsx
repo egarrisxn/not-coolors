@@ -30,17 +30,17 @@ const PaletteCard = () => {
     <>
       <Toaster position="top-center" reverseOrder={false} />
       {savedPalette.length === 0 && (
-        <p className="text-center mt-20 text-xl">No Saved Palette Found!</p>
+        <p className="mt-20 text-center text-xl">No Saved Palette Found!</p>
       )}
       <div className="grid grid-cols-12 gap-5 p-10">
         {savedPalette.map((palette, index) => {
           const colors = palette.split("-");
           return (
             <div
-              className="col-span-12 xs:col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-4 xl:col-span-3 2xl:col-span-2"
+              className="xs:col-span-12 col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-4 xl:col-span-3 2xl:col-span-2"
               key={index}
             >
-              <div className="max-w-sm rounded overflow-hidden shadow-lg">
+              <div className="max-w-sm overflow-hidden rounded shadow-lg">
                 <Link href={`/palette/${palette}`}>
                   <div className="flex">
                     {colors.map((color, colorIndex) => (
@@ -53,17 +53,17 @@ const PaletteCard = () => {
                   </div>
                 </Link>
                 <div className="px-6 py-4">
-                  <div className="flex justify-between items-center">
-                    <p className="font-bold text-xl">Palette {index + 1}</p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-xl font-bold">Palette {index + 1}</p>
                     <div className="flex gap-2">
                       <AiFillDelete
                         title="Delete"
-                        className="text-xl cursor-pointer text-red-600 hover:scale-110 transition duration-150"
+                        className="cursor-pointer text-xl text-red-600 transition duration-150 hover:scale-110"
                         onClick={() => removeSavedColorPalette(index)}
                       />
                       <AiOutlineShareAlt
                         title="Share"
-                        className="text-xl cursor-pointer hover:scale-110 transition duration-150"
+                        className="cursor-pointer text-xl transition duration-150 hover:scale-110"
                         onClick={() => shareLink(palette)}
                       />
                     </div>

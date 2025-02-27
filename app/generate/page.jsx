@@ -42,15 +42,15 @@ const Generate = () => {
   return (
     <>
       <div className="h-screen w-screen p-5">
-        <div className="flex justify-center items-center flex-col h-full">
-          <div className="relative flex justify-center items-center">
-            <AiFillHeart className="h-16 w-16 text-red-600 absolute animate-ping" />
+        <div className="flex h-full flex-col items-center justify-center">
+          <div className="relative flex items-center justify-center">
+            <AiFillHeart className="absolute h-16 w-16 animate-ping text-red-600" />
             <AiFillHeart className="h-20 w-20 text-red-600" />
           </div>
-          <p className="text-center font-bold mt-10 text-xl">
+          <p className="mt-10 text-center text-xl font-bold">
             Generating Colors.....
           </p>
-          <p className="text-center font-semibold text-lg">
+          <p className="text-center text-lg font-semibold">
             Fun Fact : {randomFunFact}
           </p>
         </div>
