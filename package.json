@@ -41,10 +41,6 @@
       "sharp"
     ]
   },
-  "engines": {
-    "node": "23.x",
-    "pnpm": "10.x"
-  },
   "prettier": {
     "semi": true,
     "tabWidth": 2,
