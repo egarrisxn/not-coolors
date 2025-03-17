@@ -1,8 +1,8 @@
 # Not Coolors 2024
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub repo size](https://img.shields.io/github/repo-size/egarrisxn/not-coolors) ![GitHub last commit](https://img.shields.io/github/last-commit/egarrisxn/not-coolors)
-
 ![notcoolors](https://github.com/user-attachments/assets/bde5328c-f7d8-441e-836f-52cb80dedcbc)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub repo size](https://img.shields.io/github/repo-size/egarrisxn/not-coolors) ![GitHub last commit](https://img.shields.io/github/last-commit/egarrisxn/not-coolors)
 
 ## Overview
 
