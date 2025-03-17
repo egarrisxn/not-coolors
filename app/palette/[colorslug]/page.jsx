@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { FiCopy, FiLock, FiUnlock, FiShare2 } from "react-icons/fi";
 import { useGlobalContext } from "@/components/context";
 
-const Page = ({ params }) => {
+export default function PaletteColorsPage({ params }) {
   const unwrappedParams = React.use(params);
   const colorslug = unwrappedParams.colorslug;
   const colorSlugArray = colorslug.split("-");
@@ -151,8 +151,8 @@ const Page = ({ params }) => {
                   className="h-full w-full transition delay-150 ease-in-out"
                   style={{ backgroundColor: `#${colorHex}` }}
                 ></div>
-                <div className="absolute bottom-40 w-full opacity-0 transition-opacity group-hover:opacity-100">
-                  <div className="flex flex-col items-center gap-6">
+                <div className="absolute bottom-[4.5rem] left-0 right-0 w-full opacity-0 transition-opacity group-hover:opacity-100 md:bottom-40">
+                  <div className="flex flex-col items-center gap-2 md:gap-6">
                     <FiCopy
                       className={`${isTooDark(
                         colorHex,
@@ -184,7 +184,7 @@ const Page = ({ params }) => {
                     )}
                   </div>
                 </div>
-                <div className="absolute bottom-20 left-0 right-0">
+                <div className="absolute bottom-5 left-0 right-0 md:bottom-20">
                   <p
                     className={`text-center text-2xl font-medium uppercase ${isTooDark(
                       colorHex,
@@ -197,9 +197,13 @@ const Page = ({ params }) => {
             </Fragment>
           ))}
         </div>
+        <button
+          onClick={saveColorPalette}
+          className="fixed bottom-4 right-4 rounded-3xl border border-gray-600 bg-gray-700 px-2.5 py-2 text-xs uppercase text-white shadow-2xl transition duration-150 hover:scale-105 hover:bg-black hover:shadow-lg md:bottom-5 md:right-5 xl:px-4 xl:py-2.5 xl:text-base"
+        >
+          Save Palette
+        </button>
       </div>
     </>
   );
-};
-
-export default Page;
+}

@@ -1,9 +1,18 @@
 {
   "name": "not-coolors",
-  "description": "You know....Not Coolors.",
+  "description": "Insanely fast color palette generator!",
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
+  "keywords": [
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "javascript",
+    "palette",
+    "color",
+    "generator"
+  ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prebuild": "pnpm run lint",

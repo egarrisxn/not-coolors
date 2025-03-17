@@ -1,9 +1,9 @@
 "use client";
 import dynamic from "next/dynamic";
+import Link from "next/link";
+import toast, { Toaster } from "react-hot-toast";
 import { useGlobalContext } from "@/components/context";
 import { AiFillDelete, AiOutlineShareAlt } from "react-icons/ai";
-import toast, { Toaster } from "react-hot-toast";
-import Link from "next/link";
 
 const PaletteCard = () => {
   const { savedPalette, setSavedPalette } = useGlobalContext();
@@ -40,7 +40,7 @@ const PaletteCard = () => {
               className="xs:col-span-12 col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-4 xl:col-span-3 2xl:col-span-2"
               key={index}
             >
-              <div className="max-w-sm overflow-hidden rounded shadow-lg">
+              <div className="max-w-sm overflow-hidden rounded-lg shadow-lg">
                 <Link href={`/palette/${palette}`}>
                   <div className="flex">
                     {colors.map((color, colorIndex) => (

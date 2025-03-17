@@ -8,6 +8,7 @@ const AppProvider = ({ children }) => {
     width: 1920,
     height: 1920,
   });
+
   useEffect(() => {
     function handleResize() {
       setWindowSize({
@@ -20,14 +21,17 @@ const AppProvider = ({ children }) => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  const [savedPalette, setSavedPalette] = useState(() => {
+
+  const [savedPalette, setSavedPalette] = useState([]);
+
+  useEffect(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("paletteColors")
-        ? JSON.parse(localStorage.getItem("paletteColors"))
-        : [];
+      const storedPalettes = localStorage.getItem("paletteColors");
+      if (storedPalettes) {
+        setSavedPalette(JSON.parse(storedPalettes));
+      }
     }
-    return [];
-  });
+  }, []);
 
   return (
     <AppContext.Provider

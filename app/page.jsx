@@ -5,41 +5,38 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Not Coolors.",
-  description: "You know....Not Coolors.",
+  description: "An insanely fast color palette generator to spark creativity.",
 };
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="md:flex">
-        <div className="mt-10 flex w-full flex-col items-center justify-center px-10 sm:mt-10 sm:px-10 md:mt-32 md:w-1/2 lg:mt-32 lg:px-40 xl:mt-0">
-          <p className="alfa text-center text-3xl font-bold lg:text-5xl">
-            Lightning-Fast Color Palette Generator!
-          </p>
-          <p className="my-10 text-center text-lg font-semibold text-[#464858] lg:text-2xl">
-            Craft your ideal palette or draw inspiration from a myriad of
-            exquisite color schemes.
-          </p>
-          <div>
-            <Link href={`/generate`}>
-              <p className=".hover:shadow-lg cursor-pointer rounded-xl bg-[#0165fe] px-20 py-3 text-center text-xl font-semibold text-white transition duration-150 hover:scale-105">
-                Generate!
-              </p>
-            </Link>
-          </div>
-        </div>
-        <div className="mt-32 hidden w-1/2 justify-center p-24 sm:px-10 md:flex xl:mt-0 xl:p-32">
+      <main className="flex">
+        <section className="mx-auto mt-20 flex w-full max-w-lg flex-col items-center justify-center gap-4 px-6 text-center md:mt-16 md:max-w-2xl lg:max-w-3xl">
           <Image
-            className="m-0"
-            src="/nc.png"
-            width={400}
-            height={400}
-            alt="not coolors logo"
+            src="/hero.png"
+            width={384}
+            height={384}
+            alt="Not Coolors logo"
+            className="size-64 sm:size-72 md:size-80"
             priority
           />
-        </div>
-      </div>
+          <h1 className="px-2 pt-8 text-3xl font-extrabold sm:text-4xl md:pt-4 md:text-5xl">
+            Insanely Fast <span className="text-pink-400">Color</span> Palette
+            Generator
+          </h1>
+          <p className="px-8 text-base text-gray-500 sm:text-lg md:text-xl">
+            Instantly craft stunning color palettes or explore endless creative
+            inspirations.
+          </p>
+          <Link href="/generate">
+            <button className="mt-4 rounded-3xl border border-gray-600 bg-gray-700 px-6 py-2 text-lg font-semibold uppercase text-white shadow-lg transition duration-150 hover:scale-105 hover:bg-black sm:text-xl md:px-10 md:py-3">
+              Generate Now
+            </button>
+          </Link>
+        </section>
+      </main>
       <Footer />
     </>
   );

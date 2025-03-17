@@ -1,10 +1,8 @@
 "use client";
 import { useEffect } from "react";
 
-const Page = () => {
+export default function PalettePage() {
   useEffect(() => {
     window.location.href = "/";
   }, []);
-};
-
-export default Page;
+}
