@@ -1,4 +1,4 @@
-# Not Coolors 2024
+# Not Coolors
 
 ![notcoolors](https://github.com/user-attachments/assets/bde5328c-f7d8-441e-836f-52cb80dedcbc)
 
@@ -32,13 +32,13 @@ To get a local copy up and running, follow these simple steps.
 1. Clone the repo:
 
    ```bash
-   git clone https://github.com/egarrisxn/not-coolors-2024.git
+   git clone https://github.com/egarrisxn/not-coolors.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd not-coolors-2024
+   cd not-coolors
    ```
 
 3. Install dependencies:
