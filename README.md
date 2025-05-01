@@ -10,7 +10,6 @@
 - Implemented a user-friendly interface using Tailwind CSS, ensuring a clean and responsive design.
 - Utilized `react-hot-toast` for user feedback and `react-icons` for intuitive UI elements.
 - Managed project dependencies and build processes using `pnpm`.
-- Employed `next lint` to maintain code quality and consistency.
 - Leveraged Next.js features such as routing and server-side rendering for optimal performance.
 
 ## Technologies
@@ -33,13 +32,13 @@ To get a local copy up and running, follow these simple steps.
 1. Clone the repo:
 
    ```bash
-   git clone https://github.com/egarrisxn/not-coolors.git
+   git clone https://github.com/egarrisxn/not-coolors-2024.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd not-coolors
+   cd not-coolors-2024
    ```
 
 3. Install dependencies:
