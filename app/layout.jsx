@@ -33,26 +33,13 @@ export const metadata = {
     creator: "@eg__xo",
     site: "@eg__xo",
   },
-  appleWebApp: {
-    capable: true,
-    title: "Not Coolors",
-    startupImage: "/opengraph-image.png",
-    statusBarStyle: "white-translucent",
-  },
-  formatDetection: {
-    telephone: true,
-    date: true,
-    address: true,
-    email: true,
-    url: true,
-  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <AppProvider>
       <html lang="en">
-      <meta name='apple-mobile-web-app-title' content='Not Coolors' />
+        <head><meta name='apple-mobile-web-app-title' content='Not Coolors' /></head>
         <body className={geist.className}>{children}</body>
       </html>
     </AppProvider>
