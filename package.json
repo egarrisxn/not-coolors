@@ -4,22 +4,12 @@
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
-  "keywords": [
-    "nextjs",
-    "react",
-    "tailwindcss",
-    "javascript",
-    "palette",
-    "color",
-    "generator"
-  ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prebuild": "pnpm run lint",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "next-lint": "next lint",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "format": "prettier --check .",
@@ -59,6 +49,7 @@
     "jsxSingleQuote": false,
     "plugins": [
       "prettier-plugin-tailwindcss"
-    ]
+    ],
+    "tailwindStylesheet": "./app/globals.css"
   }
 }

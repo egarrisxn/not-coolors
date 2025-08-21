@@ -39,7 +39,9 @@ export default function RootLayout({ children }) {
   return (
     <AppProvider>
       <html lang="en">
-        <head><meta name='apple-mobile-web-app-title' content='Not Coolors' /></head>
+        <head>
+          <meta name="apple-mobile-web-app-title" content="Not Coolors" />
+        </head>
         <body className={geist.className}>{children}</body>
       </html>
     </AppProvider>
